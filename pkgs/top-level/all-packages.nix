@@ -1104,6 +1104,8 @@ let
 
   jdiskreport = callPackage ../tools/misc/jdiskreport { };
 
+  jenkins = callPackage ../development/tools/misc/jenkins { }; 
+
   jfsrec = callPackage ../tools/filesystems/jfsrec {
     boost = boost144;
   };
