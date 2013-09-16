@@ -3119,6 +3119,8 @@ let
 
   perl = if system != "i686-cygwin" then perl516 else sysPerl;
 
+  pdfconverter = callPackage ../private/onlinetouch/pdf-converter/default.nix { };
+
   php = php54;
 
   php53 = callPackage ../development/interpreters/php/5.3.nix { };
