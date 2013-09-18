@@ -21,10 +21,10 @@ stdenv.mkDerivation {
 
     mkdir -p $out/conf
     cp -av * $out
-    
+
     cd $out;
     ${if logsDir  != "" then ''ln -s ${logsDir} logs'' else ""}
-    
+
     # Extract, delete from zip; and optionally append to defaults.yaml
     unzip  storm-*.jar defaults.yaml;
     zip -d storm-*.jar defaults.yaml;
@@ -34,7 +34,7 @@ stdenv.mkDerivation {
 
     # Link to jzmq jar and extra jars
     cd lib;
-    ln ${jzmq}/share/java/*.jar;
+    ln -s ${jzmq}/share/java/*.jar;
     ${lib.concatMapStrings (jar: "ln -s ${jar};\n") extraJars}
   '';
 
